@@ -88,10 +88,16 @@ public class ServerHandler : MonoBehaviour
         Debug.Log(this.toJSON());
     }
 
-    public void OpenSurvey()
+    public async void OpenSurvey()
     {
-        this.survey.SetActive(true);
+        // busy waiting until object has been spawned properly
+        while(this.button1 == null)
+        {
+            await System.Threading.Tasks.Task.Delay(10); // 10 ms
+        }
+
         Debug.Log("Opened questionnaire.");
+        this.survey.SetActive(true);
         Reset();
         UpdateCanvas();    
     }
