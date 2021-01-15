@@ -35,27 +35,27 @@ public class ServerHandler : MonoBehaviour
 
     public ServerResponse sr;
 
-    public int round = 0;
+    private int round = 0;
     
     // make sure this one is false for deployment
     private bool TESTING = Application.isEditor;
 
     private Questionnaires qs;
-    public string API_URL = "https://body-ownership.ew.r.appspot.com/entry";
+    public string API_URL = "https://...";
 
     // stores data
-    private Log log;
+    private Log log = new Log();
 
     // internal counters
     int current_questionnaire_count = 0;
     int current_question_count = 0;
 
+    public int skin_tone = -1;
+
     void Start()
     {
         Debug.Log("ServerHandler::StartSurvey()");
 
-        String order = GameObject.FindGameObjectWithTag("StudyController").GetComponent<StudyController>().GetOrder().ToString();
-        this.log = new Log(order);
         this.qs = JsonUtility.FromJson<Questionnaires>(jsonFile.text);
 
         this.button1 = GameObject.Find("Button1");
@@ -70,6 +70,11 @@ public class ServerHandler : MonoBehaviour
         this.help = GameObject.Find("QuestionnaireHelpText");
 
         LogQuestions();
+    }
+
+    public void SetOrder(string order)
+    {
+        this.log.SetOrder(order);
     }
 
     public void Reset()
@@ -115,6 +120,12 @@ public class ServerHandler : MonoBehaviour
             this.current_questionnaire_count++;
             q = this.qs.questionnaires[current_questionnaire_count];
         }
+
+        Debug.Log("ServerHandler::GetCurrentQuestionnaire()");
+        Debug.Log("Round: " + round);
+        Debug.Log("Q: " + q.name);
+        Debug.Log("Exclude_rounds: " + String.Join(", ", q.exclude_rounds));
+
         return this.qs.questionnaires[current_questionnaire_count];
     }
 
@@ -296,6 +307,13 @@ public class ServerHandler : MonoBehaviour
     {
         string name = GetCurrentName();
         log.NewAnswer(button_id, name);
+
+        Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
+
+        if(name == "fitzpatrick-Q0")
+        {
+            skin_tone = button_id;
+        }
 
         if (current_question_count == GetCurrentQuestionnaire().questions.Length -1)
         {

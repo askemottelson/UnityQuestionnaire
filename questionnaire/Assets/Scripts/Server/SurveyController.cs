@@ -7,9 +7,9 @@ using UnityEngine.Events;
 public class SurveyController : MonoBehaviour
 {
     public int COOL_DOWN_SECONDS = 3;
+    public UnityEvent SurveyDone = new UnityEvent();
 
     private ServerHandler sh;
-
 
     void Start()
     {
@@ -151,6 +151,7 @@ public class SurveyController : MonoBehaviour
             {
                 sh.Reset();
                 sh.CloseSurvey();
+                SurveyDone.Invoke();
             }
         }
 

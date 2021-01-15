@@ -7,9 +7,14 @@ public class Log
     private long start;
     public string order;
 
-    public Log(string order)
+    public Log()
     {
         this.start = new System.DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();
+    }
+
+    public void SetOrder(string order)
+    {
+        this.order = order;
     }
 
     public void NewAnswer(int answer, string name)

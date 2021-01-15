@@ -10,6 +10,7 @@ public class DataLog
     public bool test;
     public long end;
     public string device;
+    public string deviceID;
     public string IP;
     public string order;
     public long start;
@@ -17,6 +18,7 @@ public class DataLog
     public DataLog(List<Answer> answers, bool isTest, long start, string order)
     {
         this.device = SystemInfo.deviceModel;
+        this.deviceID = SystemInfo.deviceUniqueIdentifier;
         this.answers = answers.ToArray();
         this.test = isTest;
         this.end = new System.DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();

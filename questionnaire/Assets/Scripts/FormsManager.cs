@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class FormsManager : MonoBehaviour {
     public GameObject ConsentForm;
+    public GameObject SurveyForm;
     public GameObject NoInternetSign;
+
+    public enum FormType
+    {
+        Consent,
+        Survey,
+        NoInternet
+    }
 
     void Start() {
         ConsentForm.SetActive(false);
@@ -19,6 +27,22 @@ public class FormsManager : MonoBehaviour {
 
     }
 
+    public void ShowForm(FormType form, bool active)
+    {
+        switch (form)
+        {
+            case FormType.Consent:
+                ConsentForm.SetActive(active);
+                break;
+            case FormType.Survey:
+                SurveyForm.SetActive(active);
+                break;
+            case FormType.NoInternet:
+                NoInternetSign.SetActive(active);
+                break;
+        }
+    }
+
     void _checkInternet()
     {
         StartCoroutine(checkInternetConnection((isConnected) => {
@@ -28,11 +52,11 @@ public class FormsManager : MonoBehaviour {
             if (!has_internet)
             {
                 // make internet message visible
-                NoInternetSign.SetActive(true);
+                ShowForm(FormType.NoInternet, true);
             }
             else
             {
-                NoInternetSign.SetActive(false);
+                ShowForm(FormType.NoInternet, false);
             }
         }));
     }
