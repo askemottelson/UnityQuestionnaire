@@ -58,6 +58,13 @@ public class ServerHandler : MonoBehaviour
 
         this.qs = JsonUtility.FromJson<Questionnaires>(jsonFile.text);
 
+        assignReferences();
+
+        LogQuestions();
+    }
+
+    private void assignReferences()
+    {
         this.button1 = GameObject.Find("Button1");
         this.button2 = GameObject.Find("Button2");
         this.button3 = GameObject.Find("Button3");
@@ -68,8 +75,6 @@ public class ServerHandler : MonoBehaviour
 
         this.title = GameObject.Find("QuestionnaireHeader");
         this.help = GameObject.Find("QuestionnaireHelpText");
-
-        LogQuestions();
     }
 
     public void SetOrder(string order)
@@ -98,6 +103,7 @@ public class ServerHandler : MonoBehaviour
         // busy waiting until object has been spawned properly
         while(this.button1 == null)
         {
+            assignReferences();
             await System.Threading.Tasks.Task.Delay(10); // 10 ms
         }
 
@@ -373,6 +379,7 @@ public class ServerHandler : MonoBehaviour
 
     public void SendDataToServer()
     {
+        Debug.Log("ServerHandler::SendDataToServer()");
         StartCoroutine(CheckForServerResponse());
         StartCoroutine(SendJSONToServer());
     }

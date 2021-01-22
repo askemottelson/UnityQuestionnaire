@@ -140,6 +140,7 @@ public class SurveyController : MonoBehaviour
         {
             sh.Reset();
             sh.CloseSurvey();
+            SurveyDone.Invoke();
         }
         else
         {
