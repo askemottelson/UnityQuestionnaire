@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UserFollower : MonoBehaviour {
     public OVRCameraRig User;
-    public GameObject FingerTipR;
-    public GameObject FingerTipL;
 
     void Start() {
         
