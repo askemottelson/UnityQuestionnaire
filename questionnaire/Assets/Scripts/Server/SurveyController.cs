@@ -6,15 +6,17 @@ using UnityEngine.Events;
 
 public class SurveyController : MonoBehaviour
 {
-    public int COOL_DOWN_SECONDS = 3;
+    public float COOL_DOWN_SECONDS = 1.0f;
     public UnityEvent SurveyDone = new UnityEvent();
 
     private ServerHandler sh;
+    
 
     void Start()
     {
         // get reference to serverhandler component
         this.sh = gameObject.GetComponent<ServerHandler>();
+
     }
 
     bool buttonDisabled(string key)
@@ -109,13 +111,17 @@ public class SurveyController : MonoBehaviour
     }
 
     bool cool_down = false;
+
+    
     private void _buttonPress(int button_id)
     {
         Debug.Log("PRESSED BUTTON: " + button_id);
 
+
+
         // don't allow filling out surveys, when form is not present
         // only really possible from debugging
-        if(!sh.survey.activeSelf)
+        if (!sh.survey.activeSelf)
         {
             return;
         }

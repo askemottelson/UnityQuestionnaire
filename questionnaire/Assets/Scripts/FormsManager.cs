@@ -2,17 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FormsManager : MonoBehaviour {
     public GameObject ConsentForm;
     public GameObject SurveyForm;
     public GameObject NoInternetSign;
+    public GameObject Messages;
 
     public enum FormType
     {
         Consent,
         Survey,
-        NoInternet
+        NoInternet,
+        Messages
     }
 
     void Start() {
@@ -40,7 +43,17 @@ public class FormsManager : MonoBehaviour {
             case FormType.NoInternet:
                 NoInternetSign.SetActive(active);
                 break;
+            case FormType.Messages:
+                Messages.SetActive(active);
+                break;
         }
+    }
+
+    public void ShowMessage(string title, string desc)
+    {
+        ShowForm(FormType.Messages, true);
+        Messages.transform.GetChild(1).GetComponent<Text>().text = title;
+        Messages.transform.GetChild(2).GetComponent<Text>().text = desc;
     }
 
     void _checkInternet()

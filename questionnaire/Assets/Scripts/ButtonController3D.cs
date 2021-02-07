@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class ButtonController3D : MonoBehaviour
 {
     public bool buttonDown = false;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        this.audioSource = transform.parent.parent.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class ButtonController3D : MonoBehaviour
             {
                 GetComponent<Image>().color = Color.green;
                 this.buttonDown = true;
+                audioSource.Play();
             }
         }
     }
