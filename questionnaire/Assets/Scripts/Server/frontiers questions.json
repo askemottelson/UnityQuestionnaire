@@ -1,13 +1,30 @@
 {
     "questionnaires": [
         {
-            "name": "Begin survey",
+            "name": "Welcome",
             "exclude_rounds": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
             "questions": [
                 {
-                    "question": "",
-                    "help": "Intro text",
-                    "b1": "Begin",
+                    "question": "Welcome text ...",
+                    "help": "Welcome to the study",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                }
+            ]
+        },
+        {
+            "name": "Consent",
+            "exclude_rounds": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+            "questions": [
+                {
+                    "question": "Consent text ...",
+                    "help": "Informed Consent",
+                    "b1": "I agree",
                     "b2": "",
                     "b3": "",
                     "b4": "",
