@@ -61,10 +61,13 @@ public class ServerHandler : MonoBehaviour
         assignReferences();
 
         LogQuestions();
+        OpenSurvey();
     }
 
     private void assignReferences()
     {
+        this.survey.SetActive(true);
+
         this.button1 = GameObject.Find("Button1");
         this.button2 = GameObject.Find("Button2");
         this.button3 = GameObject.Find("Button3");
@@ -100,8 +103,10 @@ public class ServerHandler : MonoBehaviour
 
     public async void OpenSurvey()
     {
+        Debug.Log("ServerHandler::OpenSurvey()");
+
         // busy waiting until object has been spawned properly
-        while(this.button1 == null)
+        while (this.button1 == null)
         {
             assignReferences();
             await System.Threading.Tasks.Task.Delay(10); // 10 ms
