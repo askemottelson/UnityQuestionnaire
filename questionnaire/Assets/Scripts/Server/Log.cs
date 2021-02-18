@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Log
 {
     private List<Answer> answers = new List<Answer>();
+    public List<float> confidences = new List<float>();
     private long start;
     public string order;
 
@@ -26,7 +27,7 @@ public class Log
 
     public DataLog ToDataLog(bool isTest)
     {
-        return new DataLog(answers, isTest, start, order);
+        return new DataLog(answers, isTest, start, order, confidences.ToArray());
     }
 
     public int NumAnswers()

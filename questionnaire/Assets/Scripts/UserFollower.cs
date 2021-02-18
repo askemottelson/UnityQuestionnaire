@@ -26,6 +26,9 @@ public class UserFollower : MonoBehaviour {
         decreaseStep();
 
         var newPos = User.transform.position + User.transform.forward * 0.4f;
+        // a bit down
+        newPos.y *= 0.95f;
+
         transform.position = Vector3.Lerp(transform.position, newPos, step);
 
         var toUser = User.transform.position - transform.position;

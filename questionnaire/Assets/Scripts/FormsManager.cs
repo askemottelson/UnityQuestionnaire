@@ -9,13 +9,15 @@ public class FormsManager : MonoBehaviour {
     public GameObject SurveyForm;
     public GameObject NoInternetSign;
     public GameObject Messages;
+    public GameObject Final;
 
     public enum FormType
     {
         Consent,
         Survey,
         NoInternet,
-        Messages
+        Messages,
+        Final
     }
 
     void Start() {
@@ -45,6 +47,9 @@ public class FormsManager : MonoBehaviour {
                 break;
             case FormType.Messages:
                 Messages.SetActive(active);
+                break;
+            case FormType.Final:
+                Final.SetActive(active);
                 break;
         }
     }

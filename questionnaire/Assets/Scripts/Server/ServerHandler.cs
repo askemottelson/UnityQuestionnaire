@@ -23,20 +23,20 @@ public class ServerHandler : MonoBehaviour
 
     // references to UI
     public GameObject survey;
-    private GameObject title;
-    private GameObject help;
-    private GameObject button1;
-    private GameObject button2;
-    private GameObject button3;
-    private GameObject button4;
-    private GameObject button5;
-    private GameObject button6;
-    private GameObject button7;
+    public GameObject title;
+    public GameObject help;
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject button3;
+    public GameObject button4;
+    public GameObject button5;
+    public GameObject button6;
+    public GameObject button7;
 
     public ServerResponse sr;
 
     private int round = 0;
-    
+
     // make sure this one is false for deployment
     private bool TESTING = Application.isEditor;
 
@@ -52,19 +52,31 @@ public class ServerHandler : MonoBehaviour
 
     public int skin_tone = -1;
 
+    private bool has_parsed = false;
+
     void Start()
     {
         Debug.Log("ServerHandler::StartSurvey()");
 
         this.qs = JsonUtility.FromJson<Questionnaires>(jsonFile.text);
 
-        assignReferences();
-
         LogQuestions();
+    }
+
+    public void addTrackingConfidence(float c)
+    {
+        log.confidences.Add(c);
+    }
+
+    public void DecrementRound()
+    {
+        this.round--;
     }
 
     private void assignReferences()
     {
+        this.survey.SetActive(true);
+
         this.button1 = GameObject.Find("Button1");
         this.button2 = GameObject.Find("Button2");
         this.button3 = GameObject.Find("Button3");
@@ -101,7 +113,7 @@ public class ServerHandler : MonoBehaviour
     public async void OpenSurvey()
     {
         // busy waiting until object has been spawned properly
-        while(this.button1 == null)
+        if(this.button1 == null || !has_parsed)
         {
             assignReferences();
             await System.Threading.Tasks.Task.Delay(10); // 10 ms
@@ -171,14 +183,12 @@ public class ServerHandler : MonoBehaviour
             button_titles
         );
 
+        resetButtonColors();
+
         // color buttons
-        if(questionnaire.name == "fitzpatrick")
+        if (questionnaire.name == "fitzpatrick")
         {
             setFitzpatrickButtonColors();
-        }
-        else
-        {
-            resetButtonColors();
         }
     }
 
@@ -216,6 +226,10 @@ public class ServerHandler : MonoBehaviour
             int offset = 0;
             if (i == 2) offset--;
             if (i == 3) offset++;
+
+            Debug.Log("SKIN::: " + i + " -> ");
+            Debug.Log(buttons[i]);
+            Debug.Log(skintones[i]);
 
             buttons[i].GetComponent<Image>().color = skintones[i];
             buttons[i].transform.GetChild(0).GetComponent<Text>().color = skintones[buttons.Length - 1 - i - offset];
@@ -277,7 +291,12 @@ public class ServerHandler : MonoBehaviour
     public void SetTitle(string str_title)
     {
         Text title0 = title.GetComponent<Text>();
-        title0.text = str_title;
+        string extra = "";
+        if (round > 1)
+        {
+            extra = " (round " + (round-1) + "/9)";
+        }
+        title0.text = str_title + extra;
     }
 
     public void SetHelp(string str_help)
@@ -297,6 +316,8 @@ public class ServerHandler : MonoBehaviour
                 Debug.Log("Question: " + question.question);
             }
         }
+
+        has_parsed = true;
     }
 
     private string GetCurrentName()
