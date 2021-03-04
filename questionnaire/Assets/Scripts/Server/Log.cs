@@ -34,5 +34,10 @@ public class Log
     {
         return answers.Count;
     }
+    
+    public List<Answer> CopyAnswers()
+    {
+        return new List<Answer>(answers);
+    }
 }
 
