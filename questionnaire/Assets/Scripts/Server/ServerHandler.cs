@@ -333,7 +333,7 @@ public class ServerHandler : MonoBehaviour
     public bool AnswerQuestion(int button_id)
     {
         string name = GetCurrentName();
-        log.NewAnswer(button_id, name);
+        log.NewAnswer(button_id, name, round);
 
         Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
 

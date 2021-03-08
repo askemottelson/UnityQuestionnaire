@@ -18,10 +18,10 @@ public class Log
         this.order = order;
     }
 
-    public void NewAnswer(int answer, string name)
+    public void NewAnswer(int answer, string name, int round)
     {
         this.answers.Add(
-            new Answer(answer, name)
+            new Answer(answer, name, round)
         );
     }
 
