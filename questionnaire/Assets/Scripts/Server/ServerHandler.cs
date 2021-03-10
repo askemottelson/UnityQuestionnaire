@@ -38,7 +38,7 @@ public class ServerHandler : MonoBehaviour
     private int round = 0;
 
     // make sure this one is false for deployment
-    protected bool TESTING = Application.isEditor;
+    private bool TESTING = Application.isEditor;
 
     private Questionnaires qs;
     public string API_URL = "https://...";
@@ -393,7 +393,7 @@ public class ServerHandler : MonoBehaviour
         button7.SetActive(false);
     }
 
-    public virtual string toJSON()
+    public string toJSON()
     {
         return JsonUtility.ToJson(log.ToDataLog(TESTING), TESTING);
     }
