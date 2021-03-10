@@ -15,10 +15,8 @@ public class DataLog
     public string order;
     public long start;
     public float[] confidences;
-    public long scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end;
 
-    public DataLog(List<Answer> answers, bool isTest, long start, string order, float[] confidences,
-        long scene_bathroom_start = 0, long scene_bathroom_end = 0, long scene_gp_start = 0, long scene_gp_end = 0)
+    public DataLog(List<Answer> answers, bool isTest, long start, string order, float[] confidences)
     {
         this.device = SystemInfo.deviceModel;
         this.deviceID = SystemInfo.deviceUniqueIdentifier;
@@ -28,10 +26,6 @@ public class DataLog
         this.start = start;
         this.order = order;
         this.confidences = confidences;
-        this.scene_bathroom_start = scene_bathroom_start;
-        this.scene_bathroom_end = scene_bathroom_end;
-        this.scene_gp_start = scene_gp_start;
-        this.scene_gp_end = scene_gp_end;
 
         if (!isTest)
         {
