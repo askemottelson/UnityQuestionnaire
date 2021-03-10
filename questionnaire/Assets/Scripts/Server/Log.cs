@@ -7,7 +7,8 @@ public class Log
     public List<float> confidences = new List<float>();
     private long start;
     public string order;
-
+    public long scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end;
+    
     public Log()
     {
         this.start = new System.DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();
