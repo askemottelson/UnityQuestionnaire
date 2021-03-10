@@ -14,8 +14,9 @@ public class DataLog
     public string IP;
     public string order;
     public long start;
+    public float[] confidences;
 
-    public DataLog(List<Answer> answers, bool isTest, long start, string order)
+    public DataLog(List<Answer> answers, bool isTest, long start, string order, float[] confidences)
     {
         this.device = SystemInfo.deviceModel;
         this.deviceID = SystemInfo.deviceUniqueIdentifier;
@@ -24,8 +25,9 @@ public class DataLog
         this.end = new System.DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();
         this.start = start;
         this.order = order;
+        this.confidences = confidences;
 
-        if(!isTest)
+        if (!isTest)
         {
             this.IP = new WebClient().DownloadString("http://icanhazip.com").Trim();
         }

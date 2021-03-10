@@ -1,9 +1,20 @@
 {
     "questionnaires": [
         {
-            "name": "Welcome",
+            "name": "welcome",
             "exclude_rounds": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
             "questions": [
+                {
+                    "question": "Welcome",
+                    "help": "In this you will only use your hands, so please put your controllers away.",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                },
                 {
                     "question": "Welcome",
                     "help": "You will follow moving boxes with your hands, with the hands changing. It takes about 30 minutes. Your participation is voluntary and you are free to stop at any time.We will ask you some information about yourself, including your skin tone. We will also ask you to rate your experience of the hands. We also record your movement. No personal data is collected and everything is handled anonymously. By clicking “I agree” below, you acknowledge that you have read this information, voluntarily participate in this study, and allow us to store and analyze your data from this study. Do you consent to participate in the study?",
@@ -18,7 +29,7 @@
             ]
         },
         {
-            "name": "Introduction",
+            "name": "introduction",
             "exclude_rounds": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
             "questions": [
                 {
@@ -34,14 +45,30 @@
                 }
             ]
         },
-
+        {
+            "name": "ready",
+            "exclude_rounds": [ 0, 2, 3, 4, 5, 6, 7, 8 ],
+            "questions": [
+                {
+                    "question": "Great!",
+                    "help": "Before we start, we have a few questions about you.",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                }
+            ]
+        },
         {
             "name": "fitzpatrick",
             "exclude_rounds": [ 0, 2, 3, 4, 5, 6, 7, 8 ],
             "questions": [
                 {
-                    "help": "Pick the most accurate reaction of your skin to sun exposure:",
                     "question": "Self-assess your skin tone",
+                    "help": "Pick the most accurate reaction of your skin to sun exposure:",
                     "b1": "I.\nHighly sensitive, always burns, never tans.",
                     "b2": "II.\nVery sun sensitive, burns easily, tans minimally.",
                     "b3": "III.\nSun sensitive skin, sometimes burns, slowly tans to light brown.",
@@ -58,7 +85,7 @@
             "questions": [
                 {
                     "question": "How old are you?",
-                    "help": "Age",
+                    "help": "Your age",
                     "b1": "18-24",
                     "b2": "25-29",
                     "b3": "30-35",
@@ -69,7 +96,7 @@
                 },
                 {
                     "question": "What is your sex?",
-                    "help": "Sex",
+                    "help": "Your sex",
                     "b1": "Male",
                     "b2": "Female",
                     "b3": "Non-binary",
@@ -78,6 +105,23 @@
                     "b6": "",
                     "b7": ""
                 },
+                {
+                    "question": "Your VR Experience",
+                    "help": "How many hours have you used VR before?",
+                    "b1": "0-3",
+                    "b2": "5-9",
+                    "b3": "10-49",
+                    "b4": "50-99",
+                    "b5": "100+",
+                    "b6": "",
+                    "b7": ""
+                }
+            ]
+        },
+        {
+            "name": "start",
+            "exclude_rounds": [ 0, 2, 3, 4, 5, 6, 7, 8 ],
+            "questions": [
                 {
                     "question": "Ready?",
                     "help": "Great. Looks like you got the hang of it. You can now move on to the main study.",
@@ -89,9 +133,6 @@
                     "b6": "",
                     "b7": ""
                 }
-
-               
-
             ]
         },
         {
