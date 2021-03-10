@@ -44,7 +44,7 @@ public class ServerHandler : MonoBehaviour
     public string API_URL = "https://...";
 
     // stores data
-    private Log log = new Log();
+    protected Log log = new Log();
 
     // internal counters
     int current_questionnaire_count = 0;
@@ -317,7 +317,7 @@ public class ServerHandler : MonoBehaviour
     public bool AnswerQuestion(int button_id)
     {
         string name = GetCurrentName();
-        log.NewAnswer(button_id, name);
+        log.NewAnswer(button_id, name, round);
 
         Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
 
