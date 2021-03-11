@@ -176,6 +176,14 @@ public class ServerHandler : MonoBehaviour
             button_titles
         );
 
+        if(question.type == "100")
+        {
+            //TODO: make a visual slider with values from 1-100, that is easily draggable
+            // and that shows the value in text too
+            // also make a button "OK", that when selected will store the value of the slider in the log
+            //setSliderActive();
+        }
+
         // color buttons
         if(questionnaire.name == "fitzpatrick")
         {
