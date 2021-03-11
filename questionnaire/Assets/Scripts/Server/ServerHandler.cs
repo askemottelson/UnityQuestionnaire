@@ -35,7 +35,7 @@ public class ServerHandler : MonoBehaviour
 
     public ServerResponse sr;
 
-    private int round = 0;
+    protected int round = 0;
     
     // make sure this one is false for deployment
     protected bool TESTING = Application.isEditor;
@@ -118,7 +118,10 @@ public class ServerHandler : MonoBehaviour
         UpdateCanvas();    
     }
 
-    
+    public void IncrementRound()
+    {
+        round++;
+    }
 
     private Questionnaire GetCurrentQuestionnaire()
     {
