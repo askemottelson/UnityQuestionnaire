@@ -123,6 +123,8 @@ public class ServerHandler : MonoBehaviour
         round++;
     }
 
+    protected virtual void setSliderActive() { }
+
     private Questionnaire GetCurrentQuestionnaire()
     {
         Questionnaire q = this.qs.questionnaires[current_questionnaire_count];
