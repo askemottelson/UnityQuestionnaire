@@ -11,7 +11,7 @@ public class ButtonController3D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.audioSource = transform.parent.parent.GetComponent<AudioSource>();
+        audioSource = transform.GetComponentInParent<AudioSource>();
     }
 
     // Update is called once per frame

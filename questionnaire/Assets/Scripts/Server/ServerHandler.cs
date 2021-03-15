@@ -36,7 +36,7 @@ public class ServerHandler : MonoBehaviour
     public ServerResponse sr;
 
     protected int round = 0;
-    
+
     // make sure this one is false for deployment
     protected bool TESTING = Application.isEditor;
 
@@ -115,7 +115,7 @@ public class ServerHandler : MonoBehaviour
         Debug.Log("Opened questionnaire.");
         this.survey.SetActive(true);
         Reset();
-        UpdateCanvas();    
+        UpdateCanvas();
     }
 
     public void IncrementRound()
@@ -123,7 +123,7 @@ public class ServerHandler : MonoBehaviour
         round++;
     }
 
-    protected virtual void setSliderActive() { }
+    protected virtual void SetSliderActive(bool enabled) { }
 
     private Questionnaire GetCurrentQuestionnaire()
     {
@@ -155,13 +155,15 @@ public class ServerHandler : MonoBehaviour
         //Debug.Log("UpdateCanvas()");
 
         Questionnaire questionnaire;
-        Question question;        
+        Question question;
 
-        try { 
+        try
+        {
             questionnaire = GetCurrentQuestionnaire();
             question = GetCurrentQuestion();
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
             // no more questions
             Debug.Log("No more questions");
             round++;
@@ -169,7 +171,7 @@ public class ServerHandler : MonoBehaviour
         }
 
         Debug.Log("Questionnaire: '" + questionnaire.name + "', Q" + this.current_question_count);
-        
+
         SetTitle(question.question);
         SetHelp(question.help);
         string[] button_titles =
@@ -181,16 +183,15 @@ public class ServerHandler : MonoBehaviour
             button_titles
         );
 
-        if(question.type == "100")
-        {
-            //TODO: make a visual slider with values from 1-100, that is easily draggable
-            // and that shows the value in text too
-            // also make a button "OK", that when selected will store the value of the slider in the log
-            //setSliderActive();
-        }
+
+        if (question.type == "100")
+            SetSliderActive(true);
+        else
+            SetSliderActive(false);
+
 
         // color buttons
-        if(questionnaire.name == "fitzpatrick")
+        if (questionnaire.name == "fitzpatrick")
         {
             setFitzpatrickButtonColors();
         }
@@ -252,7 +253,7 @@ public class ServerHandler : MonoBehaviour
             button1, button2, button3, button4, button5, button6, button7
         };
 
-        for(var i = 0; i < values.Length; i++)
+        for (var i = 0; i < values.Length; i++)
         {
             string val = values[i];
             if (val == "")
@@ -334,12 +335,12 @@ public class ServerHandler : MonoBehaviour
 
         Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
 
-        if(name == "fitzpatrick-Q0")
+        if (name == "fitzpatrick-Q0")
         {
             skin_tone = button_id;
         }
 
-        if (current_question_count == GetCurrentQuestionnaire().questions.Length -1)
+        if (current_question_count == GetCurrentQuestionnaire().questions.Length - 1)
         {
             current_questionnaire_count++;
             current_question_count = 0;
@@ -421,7 +422,7 @@ public class ServerHandler : MonoBehaviour
         }
         else
         {
-            this.sr = JsonUtility.FromJson<ServerResponse>(www.downloadHandler.text);            
+            this.sr = JsonUtility.FromJson<ServerResponse>(www.downloadHandler.text);
         }
     }
 

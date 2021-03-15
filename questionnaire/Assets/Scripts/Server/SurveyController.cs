@@ -112,7 +112,8 @@ public class SurveyController : MonoBehaviour
 
     bool cool_down = false;
 
-    
+    internal void buttonSliderConfirmPressed(int value) { _buttonPress(value); }
+
     private void _buttonPress(int button_id)
     {
         Debug.Log("PRESSED BUTTON: " + button_id);
