@@ -359,12 +359,12 @@ public class ServerHandler : MonoBehaviour
         return true;
     }
 
-    public void ShowButtonGroup()
+    public virtual void ShowButtonGroup()
     {
         button1.transform.parent.gameObject.SetActive(true);
     }
 
-    public void HideButtonGroup()
+    public virtual void HideButtonGroup()
     {
         button1.transform.parent.gameObject.SetActive(false);
     }
