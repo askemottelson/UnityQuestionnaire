@@ -22,6 +22,7 @@ public class ButtonController3D : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (audioSource == null) audioSource = transform.GetComponentInParent<AudioSource>();
         GameObject finger = collision.collider.gameObject;
         if(finger.tag == "Finger")
         {
