@@ -52,6 +52,8 @@ public class ServerHandler : MonoBehaviour
 
     public int skin_tone = -1;
 
+    public bool sliderEnabled { get; private set; }
+
     void Start()
     {
         Debug.Log("ServerHandler::StartSurvey()");
@@ -184,7 +186,7 @@ public class ServerHandler : MonoBehaviour
         );
 
 
-        if (question.type == "100")
+        if (sliderEnabled = (question.type == "100"))
             SetSliderActive(true);
         else
             SetSliderActive(false);
