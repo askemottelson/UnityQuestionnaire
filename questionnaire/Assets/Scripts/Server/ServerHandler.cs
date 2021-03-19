@@ -44,7 +44,7 @@ public class ServerHandler : MonoBehaviour
     public string API_URL = "https://...";
 
     // stores data
-    protected Log log = new Log();
+    protected static Log log = new Log();
 
     // internal counters
     int current_questionnaire_count = 0;
@@ -84,7 +84,7 @@ public class ServerHandler : MonoBehaviour
 
     public void SetOrder(string order)
     {
-        this.log.SetOrder(order);
+        log.SetOrder(order);
     }
 
     public void Reset()
