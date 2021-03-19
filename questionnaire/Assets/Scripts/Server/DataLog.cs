@@ -16,9 +16,11 @@ public class DataLog
     public long start;
     public float[] confidences;
     public long scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end;
+    public string avatarGender, avatarAge, scenarioCommunication;
 
     public DataLog(List<Answer> answers, bool isTest, long start, string order, float[] confidences,
-        long scene_bathroom_start = 0, long scene_bathroom_end = 0, long scene_gp_start = 0, long scene_gp_end = 0)
+        long scene_bathroom_start = 0, long scene_bathroom_end = 0, long scene_gp_start = 0, long scene_gp_end = 0,
+        string avatarGender = "", string avatarAge = "", string scenarioCommunication = "")
     {
         this.device = SystemInfo.deviceModel;
         this.deviceID = SystemInfo.deviceUniqueIdentifier;
@@ -32,6 +34,9 @@ public class DataLog
         this.scene_bathroom_end = scene_bathroom_end;
         this.scene_gp_start = scene_gp_start;
         this.scene_gp_end = scene_gp_end;
+        this.avatarGender = avatarGender;
+        this.avatarAge = avatarAge;
+        this.scenarioCommunication = scenarioCommunication;
 
         if (!isTest)
         {

@@ -34,7 +34,7 @@ public class Log
     
     public DataLog ToDataLogWithTimestamps(bool isTest)
     {
-        return new DataLog(answers, isTest, start, order, confidences.ToArray(), scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end);
+        return new DataLog(answers, isTest, start, order, confidences.ToArray(), scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end, avatarGender, avatarAge, scenarioCommunication);
     }
 
     public int NumAnswers()
