@@ -5,15 +5,28 @@ public class Log
 {
     private List<Answer> answers = new List<Answer>();
     public List<float> confidences = new List<float>();
-    private long start;
+    //private long start;
     public string order;
-    public long scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end;
-    public string avatarGender, avatarAge, scenarioCommunication;
 
-    public Log()
-    {
-        this.start = new System.DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();
-    }
+    public long
+        intro_pre_questionnaire,
+        intro_post_questionnaire,
+        bathroom_start,
+        gp_start,
+        gp_pre_questionnaire,
+        gp_post_questionnaire;
+
+    public float walkedDistance, lookAtMirrorTime;
+
+    public string
+        avatar_gender,
+        condition_age,
+        condition_communication;
+
+    //public Log()
+    //{
+    //    this.start = new System.DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();
+    //}
 
     public void SetOrder(string order)
     {
@@ -29,19 +42,21 @@ public class Log
 
     public DataLog ToDataLog(bool isTest)
     {
-        return new DataLog(answers, isTest, start, order, confidences.ToArray());
+        //return new DataLog(answers, isTest, start, order, confidences.ToArray());
+        throw new Exception("Deprecated in VRHI branch.");
     }
-    
+
     public DataLog ToDataLogWithTimestamps(bool isTest)
     {
-        return new DataLog(answers, isTest, start, order, confidences.ToArray(), scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end, avatarGender, avatarAge, scenarioCommunication);
+        //return new DataLog(answers, isTest, start, order, confidences.ToArray(), intro_pre_questionnaire, intro_post_questionnaire, bathroom_start, gp_start, avatar_gender, condition_age, condition_communication);
+        throw new Exception("Deprecated in VRHI branch.");
     }
 
     public int NumAnswers()
     {
         return answers.Count;
     }
-    
+
     public List<Answer> CopyAnswers()
     {
         return new List<Answer>(answers);

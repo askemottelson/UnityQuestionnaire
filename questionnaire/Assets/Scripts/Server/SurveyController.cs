@@ -10,7 +10,7 @@ public class SurveyController : MonoBehaviour
     public UnityEvent SurveyDone = new UnityEvent();
 
     private ServerHandler sh;
-    
+
 
     void Start()
     {
@@ -25,12 +25,12 @@ public class SurveyController : MonoBehaviour
         {
             return !GameObject.Find("Button" + key).activeSelf;
         }
-        catch(NullReferenceException e)
+        catch (NullReferenceException e)
         {
             // pressed button that doesn't match 3d button
             return true;
         }
-        
+
     }
 
     void Update()
@@ -127,11 +127,11 @@ public class SurveyController : MonoBehaviour
             return;
         }
 
-        if(cool_down)
+        if (cool_down)
         {
             return;
         }
-        
+
 
         bool more = false;
         try
@@ -163,7 +163,8 @@ public class SurveyController : MonoBehaviour
             }
         }
 
-        StartCoroutine(LiftCoolDown());
+        if (isActiveAndEnabled)
+            StartCoroutine(LiftCoolDown());
     }
 }
 

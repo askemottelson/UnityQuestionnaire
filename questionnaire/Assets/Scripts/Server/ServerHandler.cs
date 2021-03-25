@@ -56,7 +56,7 @@ public class ServerHandler : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("ServerHandler::StartSurvey()");
+        //Debug.Log("ServerHandler::StartSurvey()");
 
         this.qs = JsonUtility.FromJson<Questionnaires>(jsonFile.text);
 
@@ -99,13 +99,13 @@ public class ServerHandler : MonoBehaviour
     public void CloseSurvey()
     {
         this.survey.SetActive(false);
-        Debug.Log("Closed questionnaire. Logged data:");
-        Debug.Log(this.toJSON());
+        //Debug.Log("Closed questionnaire. Logged data:");
+        //Debug.Log(this.toJSON());
     }
 
     public async void OpenSurvey()
     {
-        Debug.Log("ServerHandler::OpenSurvey()");
+        //Debug.Log("ServerHandler::OpenSurvey()");
 
         // busy waiting until object has been spawned properly
         while (this.button1 == null)
@@ -114,7 +114,7 @@ public class ServerHandler : MonoBehaviour
             await System.Threading.Tasks.Task.Delay(10); // 10 ms
         }
 
-        Debug.Log("Opened questionnaire.");
+        //Debug.Log("Opened questionnaire.");
         this.survey.SetActive(true);
         Reset();
         UpdateCanvas();
@@ -139,10 +139,10 @@ public class ServerHandler : MonoBehaviour
             q = this.qs.questionnaires[current_questionnaire_count];
         }
 
-        Debug.Log("ServerHandler::GetCurrentQuestionnaire()");
-        Debug.Log("Round: " + round);
-        Debug.Log("Q: " + q.name);
-        Debug.Log("Exclude_rounds: " + String.Join(", ", q.exclude_rounds));
+        //Debug.Log("ServerHandler::GetCurrentQuestionnaire()");
+        //Debug.Log("Round: " + round);
+        //Debug.Log("Q: " + q.name);
+        //Debug.Log("Exclude_rounds: " + String.Join(", ", q.exclude_rounds));
 
         return this.qs.questionnaires[current_questionnaire_count];
     }
@@ -167,12 +167,12 @@ public class ServerHandler : MonoBehaviour
         catch (Exception e)
         {
             // no more questions
-            Debug.Log("No more questions");
+            //Debug.Log("No more questions");
             round++;
             throw new RoundDone();
         }
 
-        Debug.Log("Questionnaire: '" + questionnaire.name + "', Q" + this.current_question_count);
+        //Debug.Log("Questionnaire: '" + questionnaire.name + "', Q" + this.current_question_count);
 
         SetTitle(question.question);
         SetHelp(question.help);
@@ -309,13 +309,13 @@ public class ServerHandler : MonoBehaviour
 
     void LogQuestions()
     {
-        Debug.Log("LogQuestions()");
+        //Debug.Log("LogQuestions()");
 
         foreach (Questionnaire q in qs.questionnaires)
         {
             foreach (Question question in q.questions)
             {
-                Debug.Log("Question: " + question.question);
+                //Debug.Log("Question: " + question.question);
             }
         }
     }
@@ -335,7 +335,7 @@ public class ServerHandler : MonoBehaviour
         string name = GetCurrentName();
         log.NewAnswer(button_id, name, round);
 
-        Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
+        //Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
 
         if (name == "fitzpatrick-Q0")
         {
@@ -400,7 +400,7 @@ public class ServerHandler : MonoBehaviour
 
     public void SendDataToServer()
     {
-        Debug.Log("ServerHandler::SendDataToServer()");
+        //Debug.Log("ServerHandler::SendDataToServer()");
         StartCoroutine(CheckForServerResponse());
         StartCoroutine(SendJSONToServer());
     }
@@ -409,7 +409,7 @@ public class ServerHandler : MonoBehaviour
     {
         string data = toJSON();
 
-        Debug.Log(data);
+        //Debug.Log(data);
 
         UnityWebRequest www = new UnityWebRequest(API_URL);
         www.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(data));
@@ -437,7 +437,7 @@ public class ServerHandler : MonoBehaviour
         }
 
         // now we have a server response
-        Debug.Log("Participant ID: " + sr.PID);
+        //Debug.Log("Participant ID: " + sr.PID);
 
         SetTitle("Response from server: " + sr.ToString());
     }
