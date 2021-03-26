@@ -17,6 +17,7 @@ public class DataLog
         gp_post_questionnaire;
 
     public float walked_distance, look_at_mirror_time;
+    public float hmd_movement, hmd_rotation, l_touch_movement, r_touch_movement;
 
     public string
         avatar_gender,
