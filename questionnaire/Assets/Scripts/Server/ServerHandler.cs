@@ -68,6 +68,11 @@ public class ServerHandler : MonoBehaviour
         log.confidences.Add(c);
     }
 
+    public void IncrementRound()
+    {
+        this.round++;
+    }
+
     public void DecrementRound()
     {
         this.round--;
@@ -166,7 +171,6 @@ public class ServerHandler : MonoBehaviour
         catch (Exception e) {
             // no more questions
             Debug.Log("No more questions");
-            round++;
             throw new RoundDone();
         }
 
@@ -332,8 +336,10 @@ public class ServerHandler : MonoBehaviour
 
     public bool AnswerQuestion(int button_id)
     {
+        StudyControllerFrontiers sc = GameObject.Find("StudyController").GetComponent<StudyControllerFrontiers>();
+
         string name = GetCurrentName();
-        log.NewAnswer(button_id, name, round);
+        log.NewAnswer(button_id, name, round, sc.current_trial, sc.condition.ToString());
 
         Debug.Log("ServerHandler::AnswerQuestion() -> q('" + name + "') = " + button_id);
 
@@ -424,7 +430,7 @@ public class ServerHandler : MonoBehaviour
         }
         else
         {
-            this.sr = JsonUtility.FromJson<ServerResponse>(www.downloadHandler.text);            
+            this.sr = JsonUtility.FromJson<ServerResponse>(www.downloadHandler.text);
         }
     }
 
