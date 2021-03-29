@@ -1,0 +1,175 @@
+{
+    "questionnaires": [
+        {
+            "name": "Welcome",
+            "exclude_rounds": [ ],
+            "questions": [
+                {
+                    "question": "Welcome",
+                    "help": "Ready to start?",
+                    "b1": "I agree",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                }
+            ]
+        },
+        {
+            "name": "demographics",
+            "exclude_rounds": [ ],
+            "questions": [
+                {
+                    "question": "How old are you?",
+                    "help": "Age",
+                    "b1": "18-24",
+                    "b2": "25-29",
+                    "b3": "30-35",
+                    "b4": "35-39",
+                    "b5": "40-49",
+                    "b6": "50-59",
+                    "b7": "60-69"
+                },
+                {
+                    "question": "What is your sex?",
+                    "help": "Sex",
+                    "b1": "Male",
+                    "b2": "Female",
+                    "b3": "Non-binary",
+                    "b4": "Prefer not to say",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                },
+                {
+                    "question": "Ready?",
+                    "help": "Great. Looks like you got the hang of it. You can now move on to the main study.",
+                    "b1": "Start study!",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                }
+
+               
+
+            ]
+        },
+        {
+            "name": "features",
+            "exclude_rounds": [ ],
+            "questions": [
+                {
+                    "help": "I felt that my virtual hands resembled my own (real) hands in terms of shape, skin tone, or other visual features",
+                    "question": "",
+                    "b1": "-3. \nStrongly disagree",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0. \nNeither agree nor disagree",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nStrongly agree"
+                }
+            ]
+        },
+        {
+            "name": "agency",
+            "exclude_rounds": [ ],
+            "questions": [
+                {
+                    "help": "I felt that the movements of the virtual hands were caused by my own movements",
+                    "question": "",
+                    "b1": "-3. \nStrongly disagree",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0. \nNeither agree nor disagree",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nStrongly agree"
+                }
+            ]
+        },
+        {
+            "name": "mybody",
+            "exclude_rounds": [ ],
+            "questions": [
+                {
+                    "help": "I felt that the virtual hands I saw were my own hands",
+                    "question": "",
+                    "b1": "-3. \nStrongly disagree",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0. \nNeither agree nor disagree",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nStrongly agree"
+                }
+            ]
+        },
+        {
+            "name": "humanness",
+            "exclude_rounds": [ ],
+            "questions": [
+                {
+                    "question": "From Inanimate to Living",
+                    "help": "Please rate the hands based on the opposing adjectives below",
+                    "b1": "-3. \nInanimate",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0.",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nLiving"
+                },
+                {
+                    "question": "From Synthetic to Real",
+                    "help": "Please rate the hands based on the opposing adjectives below",
+                    "b1": "-3. \nSynthetic",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0.",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nReal"
+                },
+                {
+                    "question": "From Mechanical movement to Biological movement",
+                    "help": "Please rate the hands based on the opposing adjectives below",
+                    "b1": "-3. \nMechanical movement",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0.",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nBiological movement"
+                },
+                {
+                    "question": "From Human-made to Human-like",
+                    "help": "Please rate the hands based on the opposing adjectives below",
+                    "b1": "-3. \nHuman-made",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0.",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nHuman-like"
+                },
+                {
+                    "question": "From Without definite lifespan to Mortal",
+                    "help": "Please rate the hands based on the opposing adjectives below",
+                    "b1": "-3. \nWithout definite lifespan",
+                    "b2": "-2.",
+                    "b3": "-1.",
+                    "b4": "0.",
+                    "b5": "1.",
+                    "b6": "2.",
+                    "b7": "3. \nMortal"
+                }
+            ]
+        }
+    ]
+}

@@ -3,6 +3,7 @@ public class Question
 {
     public string question;
     public string help;
+    public string type;
     public string b1;
     public string b2;
     public string b3;

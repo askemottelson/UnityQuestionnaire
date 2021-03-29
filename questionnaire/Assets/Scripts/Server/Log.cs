@@ -30,6 +30,11 @@ public class Log
     {
         return new DataLog(answers, isTest, start, order, confidences.ToArray());
     }
+    
+    public DataLog ToDataLogWithTimestamps(bool isTest)
+    {
+        return new DataLog(answers, isTest, start, order, confidences.ToArray(), scene_bathroom_start, scene_bathroom_end, scene_gp_start, scene_gp_end);
+    }
 
     public int NumAnswers()
     {
