@@ -426,6 +426,8 @@ public class ServerHandler : MonoBehaviour
         {
             this.sr = JsonUtility.FromJson<ServerResponse>(www.downloadHandler.text);
         }
+
+        OnDataSent();
     }
 
     IEnumerator CheckForServerResponse()
@@ -441,6 +443,8 @@ public class ServerHandler : MonoBehaviour
 
         SetTitle("Response from server: " + sr.ToString());
     }
+
+    public virtual void OnDataSent() { }
 }
 
 public class ServerResponse
