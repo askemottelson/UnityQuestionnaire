@@ -61,6 +61,11 @@ public class FormsManager : MonoBehaviour {
         Messages.transform.GetChild(2).GetComponent<Text>().text = desc;
     }
 
+    public void HideMessage()
+    {
+        ShowForm(FormType.Messages, false);
+    }   
+
     void _checkInternet()
     {
         StartCoroutine(checkInternetConnection((isConnected) => {
