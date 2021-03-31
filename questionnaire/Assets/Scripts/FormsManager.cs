@@ -64,7 +64,7 @@ public class FormsManager : MonoBehaviour {
     public void HideMessage()
     {
         ShowForm(FormType.Messages, false);
-    }   
+    }
 
     void _checkInternet()
     {
