@@ -133,7 +133,14 @@ public class ServerHandler : MonoBehaviour
         UpdateCanvas();    
     }
 
-    
+    int numTrials = 0;
+    public void SetNumTrials(int numTrials)
+    {
+        Debug.Log("SetNumTrials, " + numTrials);
+        this.numTrials = numTrials;
+    }
+
+
 
     private Questionnaire GetCurrentQuestionnaire()
     {
@@ -179,7 +186,14 @@ public class ServerHandler : MonoBehaviour
 
         Debug.Log("Questionnaire: '" + questionnaire.name + "', Q" + this.current_question_count);
         
-        SetTitle(question.question);
+        var round_msg = " (trial: " + (round-1) + "/" + numTrials + ")";
+
+        if(round <= 1)
+        {
+            round_msg = "";
+        }
+
+        SetTitle(question.question + round_msg);
         SetHelp(question.help);
         string[] button_titles =
         {
@@ -189,14 +203,6 @@ public class ServerHandler : MonoBehaviour
         setButtonTitles(
             button_titles
         );
-
-        if(question.type == "100")
-        {
-            //TODO: make a visual slider with values from 1-100, that is easily draggable
-            // and that shows the value in text too
-            // also make a button "OK", that when selected will store the value of the slider in the log
-            //setSliderActive();
-        }
 
         // color buttons
         if(questionnaire.name == "fitzpatrick")
@@ -303,6 +309,7 @@ public class ServerHandler : MonoBehaviour
 
     public void SetTitle(string str_title)
     {
+        Debug.Log("SetTitle: " + str_title);
         Text title0 = title.GetComponent<Text>();
         title0.text = str_title;
     }

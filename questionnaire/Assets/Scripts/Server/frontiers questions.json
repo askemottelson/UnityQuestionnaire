@@ -17,7 +17,51 @@
                 },
                 {
                     "question": "Welcome",
-                    "help": "You will follow moving boxes with your hands, with the hands changing. It takes about 30 minutes. Your participation is voluntary and you are free to stop at any time.We will ask you some information about yourself, including your skin tone. We will also ask you to rate your experience of the hands. We also record your movement. No personal data is collected and everything is handled anonymously. By clicking “I agree” below, you acknowledge that you have read this information, voluntarily participate in this study, and allow us to store and analyze your data from this study. Do you consent to participate in the study?",
+                    "help": "You will follow moving boxes with your hands, with the hands changing. It takes about 30 minutes.",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                },
+                {
+                    "question": "Welcome",
+                    "help": "Your participation is voluntary and you are free to stop at any time. We will ask you some information about yourself, including your skin tone.",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                },
+                {
+                    "question": "Welcome",
+                    "help": "We will also ask you to rate your experience of the hands. We also record your movement. No personal data is collected and everything is handled anonymously.",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                },
+                {
+                    "question": "Welcome",
+                    "help": "By clicking “I agree” below, you acknowledge that you have read this information, voluntarily participate in this study, and allow us to store and analyze your data from this study.",
+                    "b1": "Next",
+                    "b2": "",
+                    "b3": "",
+                    "b4": "",
+                    "b5": "",
+                    "b6": "",
+                    "b7": ""
+                },
+                {
+                    "question": "Welcome",
+                    "help": "Do you consent to participate in the study?",
                     "b1": "I agree",
                     "b2": "",
                     "b3": "",
